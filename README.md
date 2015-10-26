@@ -8,8 +8,6 @@ Call to a Meteor method with a incrementing skip param when onInfinite event of
 Client:
 ```js
 Template.Foo.onRendered(function(){
-  this.MethodWithScroll = new MethodWithScroll;
-
   this.MethodWithScroll = new MethodWithScroll({
     methodName: 'getFooItems',
     limit: 10,
@@ -20,7 +18,7 @@ Template.Foo.onRendered(function(){
     methodCallback(error, response){
       console.log('More nice data here!', response);
     }
-  });
+  }).run();
 });
 ```
 Server:
